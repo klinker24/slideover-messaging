@@ -9,7 +9,7 @@ Like I said, cleanup will come when I have more time, for now, you will just hav
 This project only has two dependencies:
 
 1.) ColorPickerPreference - We modifidied this a little it so it has been packaged along with this project.
-2.) Android-smsmms - This is Jacob's library for sending SMS and MMS messaging. With this app we only showcase the SMS though. It can be found here: http://gitub.com/Klinker41/android-smsmms
+2.) Android-smsmms - This is Jacob's library for sending SMS and MMS messaging. With this app we only showcase the SMS though. It can be found here: https://github.com/klinker41/android-smsmms
 
 
 That's it for now, dive in and see what you can do. I will merge all this back to Sliding Messaging as well if any contributions are made here!
