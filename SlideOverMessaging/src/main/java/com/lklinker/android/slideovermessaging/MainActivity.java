@@ -182,28 +182,6 @@ public class MainActivity extends PreferenceActivity {
 
         });
 
-        Preference size = findPreference("scaled_size");
-        size.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-            @Override
-            public boolean onPreferenceClick(Preference arg0) {
-                SlideOverService.restartHalo(context);
-                return false;
-            }
-
-        });
-
-        Preference foreground = findPreference("foreground_service");
-        foreground.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-            @Override
-            public boolean onPreferenceClick(Preference arg0) {
-                SlideOverService.restartHalo(context);
-                return false;
-            }
-
-        });
-
         Preference googlePlus = findPreference("slideover_help");
         googlePlus.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
@@ -216,142 +194,11 @@ public class MainActivity extends PreferenceActivity {
 
         });
 
-        Preference enableQuickPeek = findPreference("enable_quick_peek");
-        enableQuickPeek.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference contact_num = findPreference("quick_peek_contact_num");
-        contact_num.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference slideOver = findPreference("slideover_enabled");
-        slideOver.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                SlideOverService.restartHalo(context);
-                return false;
-            }
-        });
-
-        Preference unreadOnly = findPreference("slideover_only_unread");
-        unreadOnly.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference disableDrag = findPreference("slideover_disable_drag");
-        disableDrag.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference disableSliverDrag = findPreference("slideover_disable_sliver_drag");
-        disableSliverDrag.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference quickPeekTransparency = findPreference("quick_peek_transparency");
-        quickPeekTransparency.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference textMarkers = findPreference("quick_peek_text_markers");
-        textMarkers.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                SlideOverService.restartHalo(context);
-                return false;
-            }
-        });
-
-        Preference sliver = findPreference("slideover_sliver");
-        sliver.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference sliverNew = findPreference("slideover_new_sliver");
-        sliverNew.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference activation = findPreference("slideover_activation");
-        activation.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference breakPoint = findPreference("slideover_break_point");
-        breakPoint.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
-        Preference haptic = findPreference("slideover_haptic_feedback");
-        haptic.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
-
         ColorPickerPreference haloColor = (ColorPickerPreference) findPreference("slideover_color");
         haloColor.setAlphaSliderEnabled(true);
-        haloColor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
 
         ColorPickerPreference haloUnreadColor = (ColorPickerPreference) findPreference("slideover_unread_color");
         haloUnreadColor.setAlphaSliderEnabled(true);
-        haloUnreadColor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                SlideOverService.restartHalo(context);
-                return true;
-            }
-        });
 
         if (!showAll) {
             ((PreferenceGroup) findPreference("slideover_positioning_category")).removePreference(findPreference("slideover_break_point"));
@@ -411,6 +258,26 @@ public class MainActivity extends PreferenceActivity {
             // show it
             alertDialog.show();
         }
+
+        restartHaloPreference(findPreference("slideover_unread_color"),
+                findPreference("slideover_haptic_feedback"),
+                findPreference("slideover_break_point"),
+                findPreference("slideover_color"),
+                findPreference("slideover_activation"),
+                findPreference("slideover_new_sliver"),
+                findPreference("slideover_sliver"),
+                findPreference("quick_peek_text_markers"),
+                findPreference("quick_peek_transparency"),
+                findPreference("quick_peek_transparency"),
+                findPreference("slideover_disable_sliver_drag"),
+                findPreference("slideover_disable_drag"),
+                findPreference("slideover_only_unread"),
+                findPreference("slideover_enabled"),
+                findPreference("quick_peek_contact_num"),
+                findPreference("enable_quick_peek"),
+                findPreference("foreground_service"),
+                findPreference("scaled_size")
+        );
     }
 
     private boolean isSlideOverRunning() {
@@ -423,13 +290,13 @@ public class MainActivity extends PreferenceActivity {
         return false;
     }
 
-    public boolean doneClick() {
+    private boolean doneClick() {
         SlideOverService.restartHalo(context);
         finish();
         return true;
     }
 
-    public boolean discardClick() {
+    private boolean discardClick() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("slideover_enabled", enabled);
@@ -451,7 +318,7 @@ public class MainActivity extends PreferenceActivity {
         return true;
     }
 
-    public void getOriginal() {
+    private void getOriginal() {
         enabled = sharedPrefs.getBoolean("slideover_enabled", false);
         haptic = sharedPrefs.getBoolean("slideover_haptic_feedback", true);
         close = sharedPrefs.getBoolean("full_app_popup_close", true);
@@ -463,5 +330,17 @@ public class MainActivity extends PreferenceActivity {
         breakPoint = sharedPrefs.getInt("slideover_break_point", 33);
         speed = sharedPrefs.getInt("slideover_animation_speed", 33);
         padding = sharedPrefs.getInt("slideover_padding", 50);
+    }
+
+    private void restartHaloPreference(Preference... preferences) {
+        for (Preference preference : preferences) {
+            preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    SlideOverService.restartHalo(context);
+                    return true;
+                }
+            });
+        }
     }
 }
