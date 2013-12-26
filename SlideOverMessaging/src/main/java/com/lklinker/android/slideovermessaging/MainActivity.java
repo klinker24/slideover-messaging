@@ -200,6 +200,26 @@ public class MainActivity extends PreferenceActivity {
         ColorPickerPreference haloUnreadColor = (ColorPickerPreference) findPreference("slideover_unread_color");
         haloUnreadColor.setAlphaSliderEnabled(true);
 
+        restartHaloPreference(findPreference("slideover_unread_color"),
+                findPreference("slideover_haptic_feedback"),
+                findPreference("slideover_break_point"),
+                findPreference("slideover_color"),
+                findPreference("slideover_activation"),
+                findPreference("slideover_new_sliver"),
+                findPreference("slideover_sliver"),
+                findPreference("quick_peek_text_markers"),
+                findPreference("quick_peek_transparency"),
+                findPreference("quick_peek_transparency"),
+                findPreference("slideover_disable_sliver_drag"),
+                findPreference("slideover_disable_drag"),
+                findPreference("slideover_only_unread"),
+                findPreference("slideover_enabled"),
+                findPreference("quick_peek_contact_num"),
+                findPreference("enable_quick_peek"),
+                findPreference("foreground_service"),
+                findPreference("scaled_size")
+        );
+
         if (!showAll) {
             ((PreferenceGroup) findPreference("slideover_positioning_category")).removePreference(findPreference("slideover_break_point"));
             ((PreferenceGroup) findPreference("slideover_general_category")).removePreference(findPreference("slideover_haptic_feedback"));
@@ -258,26 +278,6 @@ public class MainActivity extends PreferenceActivity {
             // show it
             alertDialog.show();
         }
-
-        restartHaloPreference(findPreference("slideover_unread_color"),
-                findPreference("slideover_haptic_feedback"),
-                findPreference("slideover_break_point"),
-                findPreference("slideover_color"),
-                findPreference("slideover_activation"),
-                findPreference("slideover_new_sliver"),
-                findPreference("slideover_sliver"),
-                findPreference("quick_peek_text_markers"),
-                findPreference("quick_peek_transparency"),
-                findPreference("quick_peek_transparency"),
-                findPreference("slideover_disable_sliver_drag"),
-                findPreference("slideover_disable_drag"),
-                findPreference("slideover_only_unread"),
-                findPreference("slideover_enabled"),
-                findPreference("quick_peek_contact_num"),
-                findPreference("enable_quick_peek"),
-                findPreference("foreground_service"),
-                findPreference("scaled_size")
-        );
     }
 
     private boolean isSlideOverRunning() {
