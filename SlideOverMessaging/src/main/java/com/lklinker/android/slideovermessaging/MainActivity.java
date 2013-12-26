@@ -112,7 +112,8 @@ public class MainActivity extends PreferenceActivity {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
-        Preference finishFlat = findPreference("finish_flat_app");
+        final Preference finishFlat = findPreference("finish_flat_app");
+        finishFlat.setSummary(sharedPrefs.getString("package_name", null));
         finishFlat.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
             @Override
@@ -143,12 +144,12 @@ public class MainActivity extends PreferenceActivity {
                                             int arg2, long arg3) {
 
                         // if clicked item already on the list, do nothing and return
-                        final ApplicationsDialog.AppItem info = (ApplicationsDialog.AppItem) arg0.getItemAtPosition(arg2);
-                        final String packageName = info.packageName;
+                        ApplicationsDialog.AppItem info = (ApplicationsDialog.AppItem) arg0.getItemAtPosition(arg2);
+                        String packageName = info.packageName;
 
                         sharedPrefs.edit().putString("package_name", packageName).commit();
-
                         dialog.cancel();
+                        finishFlat.setSummary(packageName);
                     }
                 });
 
