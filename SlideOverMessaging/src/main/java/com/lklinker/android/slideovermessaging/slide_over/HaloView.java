@@ -61,8 +61,8 @@ public class HaloView extends ViewGroup {
         mContext = context;
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 
-        haloColor = sharedPrefs.getInt("slideover_color", context.getResources().getColor(R.color.white));
-        haloUnreadColor = sharedPrefs.getInt("slideover_unread_color", context.getResources().getColor(R.color.holo_red));
+        haloColor = sharedPrefs.getInt("slideover_color", context.getResources().getColor(android.R.color.white));
+        haloUnreadColor = sharedPrefs.getInt("slideover_unread_color", context.getResources().getColor(android.R.color.holo_red_dark));
 
         halo = BitmapFactory.decodeResource(getResources(),
                 R.drawable.halo_bg);

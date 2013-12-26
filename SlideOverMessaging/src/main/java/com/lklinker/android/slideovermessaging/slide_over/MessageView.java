@@ -72,11 +72,11 @@ public class MessageView extends ViewGroup {
                 R.drawable.halo_bg);
 
         blackPaint = new Paint();
-        blackPaint.setColor(getResources().getColor(R.color.black));
+        blackPaint.setColor(getResources().getColor(android.R.color.black));
         blackPaint.setAlpha((int) (sharedPrefs.getInt("quick_peek_transparency", 100) * 2.5));
 
         strokePaint = new Paint(blackPaint);
-        strokePaint.setColor(getResources().getColor(R.color.white));
+        strokePaint.setColor(getResources().getColor(android.R.color.white));
         strokePaint.setAlpha(50);
         strokePaint.setStyle(Paint.Style.STROKE);
         strokePaint.setStrokeWidth(3);

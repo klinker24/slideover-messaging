@@ -78,21 +78,21 @@ public class ContactView extends ViewGroup {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         blackPaint = new Paint();
-        blackPaint.setColor(getResources().getColor(R.color.black));
+        blackPaint.setColor(getResources().getColor(android.R.color.black));
         blackPaint.setAlpha(75);
 
         strokePaint = new Paint(blackPaint);
-        strokePaint.setColor(getResources().getColor(R.color.white));
+        strokePaint.setColor(getResources().getColor(android.R.color.white));
         strokePaint.setAlpha(50);
         strokePaint.setStyle(Paint.Style.STROKE);
         strokePaint.setStrokeWidth(3);
 
         contactCurrentPaint = new Paint();
-        contactCurrentPaint.setColor(getResources().getColor(R.color.black));
+        contactCurrentPaint.setColor(getResources().getColor(android.R.color.black));
         contactCurrentPaint.setAlpha(200);
 
         contactClosedPaint = new Paint();
-        contactClosedPaint.setColor(getResources().getColor(R.color.black));
+        contactClosedPaint.setColor(getResources().getColor(android.R.color.black));
         contactClosedPaint.setAlpha(40);
 
         resources = getResources();

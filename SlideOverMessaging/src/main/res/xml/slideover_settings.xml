@@ -112,7 +112,7 @@ limitations under the License.
             android:defaultValue="true"
             />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
             android:key="quick_peek_transparency"
             android:title="@string/quick_peek_transparency"
             android:defaultValue="78"
@@ -120,7 +120,7 @@ limitations under the License.
             android:dependency="enable_quick_peek"
             />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
             android:key="quick_peek_contact_num"
             android:title="@string/quick_peek_contact_num"
             android:summary="@string/quick_peek_contact_num_summary"
@@ -159,7 +159,7 @@ limitations under the License.
                 android:entryValues="@array/slideover_side_inserted"
                 />-->
 
-        <!--<com.klinker.android.messaging_sliding.custom_dialogs.SeekBarPreference3
+        <!--<com.klinker.android.messaging_sliding.custom_dialogs.SeekBarPreference
                 android:key="slideover_vertical"
                 android:title="@string/slideover_alignment"
                 android:summary="@string/slideover_alignment_summary"
@@ -168,7 +168,7 @@ limitations under the License.
                 android:dependency="slideover_enabled"
                 />-->
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
                 android:key="slideover_sliver"
                 android:title="@string/slideover_sliver"
                 android:summary="@string/slideover_sliver_summary"
@@ -177,7 +177,7 @@ limitations under the License.
                 android:dependency="slideover_enabled"
                 />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
             android:key="slideover_new_sliver"
             android:title="@string/slideover_new_sliver"
             android:defaultValue="75"
@@ -208,7 +208,7 @@ limitations under the License.
             android:dependency="slideover_enabled"
             />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
             android:key="slideover_return_timeout_length"
             android:title="@string/slideover_return_timeout_length"
             android:defaultValue="20"
@@ -216,7 +216,7 @@ limitations under the License.
             android:dependency="slideover_return_timeout"
             />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
                 android:key="slideover_activation"
                 android:title="@string/slideover_activation"
                 android:summary="@string/slideover_activation_summary"
@@ -225,7 +225,7 @@ limitations under the License.
                 android:dependency="slideover_enabled"
                 />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
                 android:key="slideover_break_point"
                 android:title="@string/slideover_break_point"
                 android:summary="@string/slideover_break_point_summary"
@@ -239,7 +239,7 @@ limitations under the License.
     <PreferenceCategory android:key="slideover_themeing"
         android:title="@string/slideover_theme_settings">
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
                 android:key="scaled_size"
                 android:title="Bubble Size"
                 android:defaultValue="40"
@@ -250,18 +250,18 @@ limitations under the License.
         <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="slideover_color"
                 android:title="@string/slideover_color"
-                android:defaultValue="@color/white"
+                android:defaultValue="@android:color/white"
                 android:dependency="slideover_enabled"
                 />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="slideover_unread_color"
                 android:title="@string/slideover_unread_color"
-                android:defaultValue="@color/holo_red"
+                android:defaultValue="@android:color/holo_red_dark"
                 android:dependency="slideover_enabled"
                 />
 
-        <com.lklinker.android.slideovermessaging.SeekBarPreference3
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
                 android:key="slideover_animation_speed"
                 android:title="@string/slideover_animation_speed"
                 android:defaultValue="70"

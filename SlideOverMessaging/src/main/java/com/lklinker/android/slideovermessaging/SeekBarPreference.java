@@ -30,7 +30,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-public class SeekBarPreference3 extends Preference implements OnSeekBarChangeListener {
+public class SeekBarPreference extends Preference implements OnSeekBarChangeListener {
 
     private final String TAG = getClass().getName();
 
@@ -48,12 +48,12 @@ public class SeekBarPreference3 extends Preference implements OnSeekBarChangeLis
 
     private TextView mStatusText;
 
-    public SeekBarPreference3(Context context, AttributeSet attrs) {
+    public SeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         initPreference(context, attrs);
     }
 
-    public SeekBarPreference3(Context context, AttributeSet attrs, int defStyle) {
+    public SeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initPreference(context, attrs);
     }
