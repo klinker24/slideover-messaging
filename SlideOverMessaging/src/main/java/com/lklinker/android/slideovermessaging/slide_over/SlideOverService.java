@@ -32,6 +32,7 @@ import android.os.PowerManager;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.GestureDetector;
@@ -1066,9 +1067,12 @@ public class SlideOverService extends Service {
             finishButtons();
         } else if (distance > SWIPE_MIN_DISTANCE && inFlat) {
             try {
+                Log.v("slideover_error", "starting intent");
                 Intent intent = finishFlat();
                 startActivity(intent);
             } catch (Exception e) {
+                Log.v("slideover_error", "could not start intent");
+                e.printStackTrace();
                 // already open and intent is null
             }
         } else if (distance > SWIPE_MIN_DISTANCE && inDash) {
@@ -1117,9 +1121,12 @@ public class SlideOverService extends Service {
             finishButtons();
         } else if (distance > SWIPE_MIN_DISTANCE && inFlat) {
             try {
+                Log.v("slideover_error", "starting intent");
                 Intent intent = finishFlat();
                 startActivity(intent);
             } catch (Exception e) {
+                Log.v("slideover_error", "could not start intent");
+                e.printStackTrace();
                 // already open and intent is null
             }
         } else if (distance > SWIPE_MIN_DISTANCE && inDash) {
@@ -1306,10 +1313,16 @@ public class SlideOverService extends Service {
         Intent intent;
 
         if(!packName.equals("")) {
-            intent = getPackageManager().getLaunchIntentForPackage(packName);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+            if (packName.equals("com.klinker.android.messaging_donate")) {
+                intent = new Intent().setClassName(packName, "com.klinker.android.messaging_sliding.MainActivityPopup");
+            } else if (packName.equals("com.klinker.android.evolve_sms")) {
+                intent = new Intent().setClassName(packName, packName + ".ui.PopupMainActivity");
+            } else {
+                intent = getPackageManager().getLaunchIntentForPackage(packName);
+                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+            }
+
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
         } else {
             intent = new Intent(getBaseContext(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
