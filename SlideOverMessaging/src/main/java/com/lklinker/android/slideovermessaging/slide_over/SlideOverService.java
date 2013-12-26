@@ -1322,7 +1322,7 @@ public class SlideOverService extends Service {
                 intent.addCategory(Intent.CATEGORY_LAUNCHER);
             }
 
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         } else {
             intent = new Intent(getBaseContext(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -1335,10 +1335,19 @@ public class SlideOverService extends Service {
     public void finishDash() {
         closeNotifications();
 
-        Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-        sendIntent.setData(Uri.parse("sms:"));
-        sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(sendIntent);
+        String packName = sharedPrefs.getString("package_name", "");
+        Intent intent;
+
+        if(packName.equals("com.klinker.android.evolve_sms")) {
+            intent = new Intent().setClassName(packName, packName + ".ui.ComposeActivity");
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        } else {
+            intent = new Intent(Intent.ACTION_SEND);
+            intent.setData(Uri.parse("sms:"));
+        }
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     public void contactZone(int number) {
