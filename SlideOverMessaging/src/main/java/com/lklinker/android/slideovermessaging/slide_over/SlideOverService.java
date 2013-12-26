@@ -234,11 +234,12 @@ public class SlideOverService extends Service {
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
             notification.setLatestEventInfo(this, "SlideOver Messaging",
                     "Click to open settings", pendingIntent);
-            try {
+
+            // priority flag is only available on api level 16 and above
+            if(getResources().getBoolean(R.bool.priority)) {
                 notification.priority = Notification.PRIORITY_MIN;
-            } catch (Exception e) {
-                // they are on Ice Cream Sandwhich
             }
+
             startForeground(FOREGROUND_SERVICE_ID, notification);
         }
     }
