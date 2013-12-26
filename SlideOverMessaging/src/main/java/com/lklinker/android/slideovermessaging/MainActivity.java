@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,6 +43,7 @@ import android.widget.ListView;
 import com.lklinker.android.slideovermessaging.slide_over.SlideOverService;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import java.security.PrivilegedExceptionAction;
 import java.util.List;
 
 public class MainActivity extends PreferenceActivity {
@@ -113,7 +116,15 @@ public class MainActivity extends PreferenceActivity {
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
         final Preference finishFlat = findPreference("finish_flat_app");
-        finishFlat.setSummary(sharedPrefs.getString("package_name", null));
+
+        try {
+            PackageManager manager = getPackageManager();
+            ApplicationInfo info = manager.getApplicationInfo(sharedPrefs.getString("package_name", null), 0);
+            finishFlat.setSummary(manager.getApplicationLabel(info));
+        } catch (Exception e) {
+            // dont set the subtitle for the option
+        }
+
         finishFlat.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
             @Override
@@ -149,7 +160,8 @@ public class MainActivity extends PreferenceActivity {
 
                         sharedPrefs.edit().putString("package_name", packageName).commit();
                         dialog.cancel();
-                        finishFlat.setSummary(packageName);
+
+                        finishFlat.setSummary(info.title);
                     }
                 });
 
