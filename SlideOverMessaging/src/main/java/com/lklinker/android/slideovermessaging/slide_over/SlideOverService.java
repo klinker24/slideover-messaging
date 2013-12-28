@@ -237,7 +237,11 @@ public class SlideOverService extends Service {
 
             // priority flag is only available on api level 16 and above
             if(getResources().getBoolean(R.bool.priority)) {
-                notification.priority = Notification.PRIORITY_MIN;
+                try {
+                    notification.priority = Notification.PRIORITY_MIN;
+                } catch (NoSuchFieldError e) {
+                    // i don't understand why it is getting here... but it keeps throwing this error for some guy..
+                }
             }
 
             startForeground(FOREGROUND_SERVICE_ID, notification);
@@ -1343,8 +1347,13 @@ public class SlideOverService extends Service {
             intent = new Intent().setClassName(packName, packName + ".ui.ComposeActivity");
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         } else {
-            intent = new Intent(Intent.ACTION_SEND);
-            intent.setData(Uri.parse("sms:"));
+            try {
+                intent = new Intent(Intent.ACTION_SEND);
+                intent.setData(Uri.parse("sms:"));
+            } catch (Exception e) {
+                startActivity(finishFlat());
+                return;
+            }
         }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
