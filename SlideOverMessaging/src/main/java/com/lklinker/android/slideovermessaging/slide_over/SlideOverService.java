@@ -1357,7 +1357,11 @@ public class SlideOverService extends Service {
         }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        try {
+            startActivity(intent);
+        } catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", "", null)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }
     }
 
     public void contactZone(int number) {
