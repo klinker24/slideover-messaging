@@ -191,7 +191,19 @@ public class SlideOverService extends Service {
         halo = BitmapFactory.decodeResource(getResources(),
                 R.drawable.halo_bg);
 
-        halo = Bitmap.createScaledBitmap(halo, halo.getWidth() * sharedPrefs.getInt("scaled_size", 40)/50, halo.getHeight() * sharedPrefs.getInt("scaled_size", 40)/50, true);
+        int scaledSize = sharedPrefs.getInt("scaled_size", 40);
+
+        if (scaledSize < 1) {
+            sharedPrefs.edit().putInt("scaled_size", 1).commit();
+            scaledSize = 1;
+        }
+
+        try {
+            halo = Bitmap.createScaledBitmap(halo, halo.getWidth() * scaledSize/50, halo.getHeight() * scaledSize/50, true);
+        } catch (Exception e) {
+            halo = BitmapFactory.decodeResource(getResources(),
+                    R.drawable.halo_bg);
+        }
 
         initialSetup(halo, height, width);
 
