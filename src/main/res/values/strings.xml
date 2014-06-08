@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SlideOver Messaging</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="send_button">Send</string>
+    <string name="type_message">Type message</string>
+    <string name="done">Done</string>
+    <string name="discard">Discard</string><string name="slide_over">SlideOver</string>
+    <string name="enable_slideover">Enable SlideOver</string>
+    <string name="enable_slideover_summary">Creates a chathead bubble that will allow you to quickly open and close the app on top of any other app</string>
+    <string name="slideover_side">Horizontal Positioning</string>
+    <string name="slideover_side_summary">Move SlideOver to the left or right side of the screen</string>
+    <string name="slideover_alignment">Vertical Positioning</string>
+    <string name="slideover_alignment_summary">Adjust where SlideOver appears on the vertical axis</string>
+    <string name="slideover_sliver">Sliver Width</string>
+    <string name="slideover_sliver_summary">Adjust how much of the SlideOver bubble is visible on the screen</string>
+    <string name="slideover_activation">Activation Width</string>
+    <string name="slideover_activation_summary">Distance on screen that you have to pull to activate SlideOver</string>
+    <string name="slideover_break_point">Arc Break Point</string>
+    <string name="slideover_break_point_summary">Adjust how big the conversation arc is on the screen</string>
+    <string name="under_development">Please Note:</string>
+    <string name="under_development_summary">SlideOver is still heavily under development. Do not submit requests, or even suggestions, for it at this time.</string>
+    <string name="slideover_secondary_action">Secondary Action</string>
+    <string name="slideover_secondary_action_summary">Choose the action that occurs when you have activated the dashed part of the SlideOver arc</string>
+    <string name="slideover_haptic_feedback">Enable Haptic Feedback</string>
+    <string name="full_app_popup_close">Auto-close SlideOver</string>
+    <string name="full_app_popup_close_summary">Closes the popup after you have replied to a message</string>
+    <string name="slideover_popup_settings">SlideOver Popup Settings</string>
+    <string name="slideover_padding">SlideOver Size</string>
+    <string name="slideover_padding_summary">Adjusts the height of the SlideOver popup on screen.</string>
+    <string name="slideover_width_padding_summary">Adjust the width of the SlideOver popup on screen.</string>
+    <string name="slideover_popup_lockscreen_only">SlideOver Popup after lockscreen Only</string>
+    <string name="slideover_popup_lockscreen_only_summary">Only show the popup when you have unlocked the device and there is a new message, otherwise let the SlideOver bubble handle new messages</string>
+    <string name="slideover_animation_speed">Animation Speed</string>
+    <string name="show_advanced_settings">Show All Settings</string>
+    <string name="show_advanced_settings_summary">Enables all hidden settings</string>
+    <string name="slideover_close">CLOSE</string>
+    <string name="slideover_clear">CLEAR</string>
+    <string name="slideover_settings_overlay">SETTINGS</string>
+    <string name="slideover_tutorial">SlideOver Tutorial</string>
+    <string name="slideover_tutorial_summary">Click here for a list of features and knowledge about using SlideOver and Quick Peek to their full potential</string>
+    <string name="general_slideover_category">General SlideOver Settings</string>
+    <string name="contact_picture_slideover">Show contact pictures on incoming messages</string>
+    <string name="slideover_new_sliver">Sliver width on incoming messages</string>
+    <string name="slideover_return_timeout">Auto-Reset Sliver</string>
+    <string name="reset_sliver_timeout_summary">Automatically reset the sliver to the normal position after the following amount of time (configurable with \"Show All Settings\" enabled). Applies after a new message has come in and the SlideOver bubble pings out.</string>
+    <string name="slideover_return_timeout_length">Timeout duration (in seconds):</string>
+    <string name="ping_on_unlock">Ping SlideOver bubble</string>
+    <string name="ping_on_unlock_summary">Sets the SlideOver bubble to the new sliver width if there is a new message when the screen is unlocked. Timeout settings will apply</string>
+    <string name="animate_text_on_ping">Animate text on ping</string>
+    <string name="close_quick_peek_on_send">Close Quick Peek on send</string>
+    <string name="never_again">Don\'t Show Again</string>
+    <string name="quick_peek_text_markers">Enabled text markers</string>
+    <string name="foreground_service">Foreground Service</string>
+    <string name="foreground_service_summary">Use this option if the SlideOver Messaging bubble disappears after so long on your screen. It is because the system is killing the service used to create it. This option will get around that by putting a persistent notification on your notification tray. It will not work on Android 4.0.</string>
+    <string name="only_quickpeek">Only use Quick Peek</string>
+    <string name="only_quickpeek_summary">Disables access to the SlideOver popup from the SlideOver bubble so Quick Peek is the only thing accessible.</string>
+    <string name="quick_peek_messages">Number of Messages Displayed</string><string name="split_sms">Split SMS Messages</string>
+    <string name="split_sms_summary">Will split messages into compatible lengths. For use if you have trouble sending long messages with your carrier</string>
+    <string name="quick_peek_category">Quick Peek Settings</string>
+    <string name="quick_peek_transparency">Message box opacity</string>
+    <string name="quick_peek_contact_num">Number of Contacts</string>
+    <string name="quick_peek_contact_num_summary">You may have to adjust this if the contacts don\'t fit on the screen correctly</string>
+    <string name="enable_quick_peek">Enable Quick Peek</string>
+    <string name="enable_quick_peek_summary">A single tap on the SlideOver bubble will open the new Quick Peek window to view recent conversations</string>
+    <string name="slideover_only_unread">Quick Peek: Unread Only</string>
+    <string name="slideover_only_unread_summary">Only show unread messages in the SlideOver Quick Peek</string>
+    <string name="slideover_disable_drag">Disable long press action</string>
+    <string name="slideover_disable_drag_summary">Warning: you will have no way to move the bubble around with this option enabled</string>
+    <string name="slideover_disable_sliver">Disable the double-tap action</string>
+    <string name="positioning">SlideOver Positioning</string>
+    <string name="slideover_theme_settings">SlideOver Theming</string>
+    <string name="slideover_color">Normal Bubble Color</string>
+    <string name="slideover_unread_color">Unread Bubble Color</string>
+    <string name="override">Override Stock Messaging</string>
+    <string name="override_disclaimer">Check this option if nothing appears in Quick Peek when you tap the SlideOver bubble. Cation: This may stop notifications from your main SMS app, so you will ONLY be notified from the SlideOver bubble. This is how it must be done so you don\'t receive two messages and there is no workaround.</string>
+    <string name="close">Close</string>
+</resources>

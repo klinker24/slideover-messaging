@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2013 Luke Klinker
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="slideover_help"
+        android:title="@string/slideover_tutorial"
+        android:summary="@string/slideover_tutorial_summary"
+        />
+
+    <PreferenceCategory android:key="slideover_general_category"
+         android:title="@string/general_slideover_category" >
+
+
+        <CheckBoxPreference
+            android:key="slideover_enabled"
+            android:title="@string/enable_slideover"
+            android:summary="@string/enable_slideover_summary"
+            android:defaultValue="false"
+        />
+
+        <CheckBoxPreference
+            android:key="foreground_service"
+            android:title="Foreground Service"
+            android:summary="Use this option if the SlideOver Messaging bubble disappears after so long on your screen. It is because the system is killing the service used to create it. This option will get around that by putting a persistent notification on your notification tray."
+            android:defaultValue="false"
+            android:dependency="slideover_enabled"
+            />
+
+        <Preference
+            android:key="finish_flat_app"
+            android:title="App to Open"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="contact_picture_slideover"
+            android:title="@string/contact_picture_slideover"
+            android:dependency="slideover_enabled"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="slideover_haptic_feedback"
+            android:title="@string/slideover_haptic_feedback"
+            android:defaultValue="true"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="vibrate_on_incoming"
+            android:title="Vibrate for new message"
+            android:dependency="slideover_enabled"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="split_sms"
+            android:defaultValue="false"
+            android:title="@string/split_sms"
+            android:summary="@string/split_sms_summary"
+            android:dependency="slideover_enabled"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="slideover_quick_peek"
+        android:title="@string/quick_peek_category" >
+
+        <CheckBoxPreference
+            android:key="enable_quick_peek"
+            android:title="@string/enable_quick_peek"
+            android:summary="@string/enable_quick_peek_summary"
+            android:defaultValue="true"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="slideover_only_unread"
+            android:title="@string/slideover_only_unread"
+            android:summary="@string/slideover_only_unread_summary"
+            android:dependency="enable_quick_peek"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="close_quick_peek_on_send"
+            android:title="@string/close_quick_peek_on_send"
+            android:defaultValue="false"
+            android:dependency="enable_quick_peek"
+            />
+
+        <CheckBoxPreference
+            android:key="quick_peek_text_markers"
+            android:title="@string/quick_peek_text_markers"
+            android:dependency="enable_quick_peek"
+            android:defaultValue="true"
+            />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+            android:key="quick_peek_transparency"
+            android:title="@string/quick_peek_transparency"
+            android:defaultValue="78"
+            android:max="100"
+            android:dependency="enable_quick_peek"
+            />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+            android:key="quick_peek_contact_num"
+            android:title="@string/quick_peek_contact_num"
+            android:summary="@string/quick_peek_contact_num_summary"
+            android:defaultValue="4"
+            android:max="5"
+            android:dependency="enable_quick_peek"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="slideover_positioning_category"
+        android:title="@string/positioning">
+
+        <CheckBoxPreference
+            android:key="slideover_disable_drag"
+            android:title="@string/slideover_disable_drag"
+            android:summary="@string/slideover_disable_drag_summary"
+            android:defaultValue="false"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="slideover_disable_sliver_drag"
+            android:title="@string/slideover_disable_sliver"
+            android:defaultValue="false"
+            android:dependency="slideover_enabled"
+            />
+
+        <!--<ListPreference
+                android:key="slideover_side"
+                android:title="@string/slideover_side"
+                android:summary="@string/slideover_side_summary"
+                android:defaultValue="left"
+                android:dependency="slideover_enabled"
+                android:entries="@array/slideover_side"
+                android:entryValues="@array/slideover_side_inserted"
+                />-->
+
+        <!--<com.klinker.android.messaging_sliding.custom_dialogs.SeekBarPreference
+                android:key="slideover_vertical"
+                android:title="@string/slideover_alignment"
+                android:summary="@string/slideover_alignment_summary"
+                android:defaultValue="50"
+                android:max="100"
+                android:dependency="slideover_enabled"
+                />-->
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+                android:key="slideover_sliver"
+                android:title="@string/slideover_sliver"
+                android:summary="@string/slideover_sliver_summary"
+                android:defaultValue="33"
+                android:max="100"
+                android:dependency="slideover_enabled"
+                />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+            android:key="slideover_new_sliver"
+            android:title="@string/slideover_new_sliver"
+            android:defaultValue="75"
+            android:max="100"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="ping_on_unlock"
+            android:title="@string/ping_on_unlock"
+            android:summary="@string/ping_on_unlock_summary"
+            android:defaultValue="true"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="animate_text_on_ping"
+            android:title="@string/animate_text_on_ping"
+            android:defaultValue="true"
+            android:dependency="slideover_enabled"
+            />
+
+        <CheckBoxPreference
+            android:key="slideover_return_timeout"
+            android:title="@string/slideover_return_timeout"
+            android:summary="@string/reset_sliver_timeout_summary"
+            android:defaultValue="false"
+            android:dependency="slideover_enabled"
+            />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+            android:key="slideover_return_timeout_length"
+            android:title="@string/slideover_return_timeout_length"
+            android:defaultValue="20"
+            android:max="60"
+            android:dependency="slideover_return_timeout"
+            />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+                android:key="slideover_activation"
+                android:title="@string/slideover_activation"
+                android:summary="@string/slideover_activation_summary"
+                android:defaultValue="33"
+                android:max="100"
+                android:dependency="slideover_enabled"
+                />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+                android:key="slideover_break_point"
+                android:title="@string/slideover_break_point"
+                android:summary="@string/slideover_break_point_summary"
+                android:defaultValue="33"
+                android:max="100"
+                android:dependency="slideover_enabled"
+                />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="slideover_themeing"
+        android:title="@string/slideover_theme_settings">
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+                android:key="scaled_size"
+                android:title="Bubble Size"
+                android:defaultValue="40"
+                android:max="100"
+                android:dependency="slideover_enabled"
+                />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:key="slideover_color"
+                android:title="@string/slideover_color"
+                android:defaultValue="@android:color/white"
+                android:dependency="slideover_enabled"
+                />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:key="slideover_unread_color"
+                android:title="@string/slideover_unread_color"
+                android:defaultValue="@android:color/holo_red_dark"
+                android:dependency="slideover_enabled"
+                />
+
+        <com.lklinker.android.slideovermessaging.SeekBarPreference
+                android:key="slideover_animation_speed"
+                android:title="@string/slideover_animation_speed"
+                android:defaultValue="70"
+                android:max="100"
+                android:dependency="slideover_enabled"
+                />
+
+    </PreferenceCategory>
+
+    <CheckBoxPreference
+        android:key="override"
+        android:title="@string/override"
+        android:summary="@string/override"
+        android:defaultValue="false"
+        android:dependency="slideover_enabled"
+        />
+
+    <CheckBoxPreference
+        android:key="show_all_settings"
+        android:title="@string/show_advanced_settings"
+        android:summary="@string/show_advanced_settings_summary"
+        android:defaultValue="false"
+        />
+
+</PreferenceScreen>

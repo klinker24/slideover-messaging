@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- used for the priority flag on the foreground service -->
+    <bool name="priority">true</bool>
+</resources>
