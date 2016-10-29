@@ -31,7 +31,6 @@ public class SendUtil {
         sendSettings.setProxy(sharedPrefs.getString("mms_proxy", ""));
         sendSettings.setPort(sharedPrefs.getString("mms_port", ""));
         sendSettings.setGroup(sharedPrefs.getBoolean("group_message", false));
-        sendSettings.setWifiMmsFix(sharedPrefs.getBoolean("wifi_mms_fix", false));
         sendSettings.setDeliveryReports(sharedPrefs.getBoolean("delivery_reports", false));
         sendSettings.setSplit(sharedPrefs.getBoolean("split_sms", false));
         sendSettings.setSplitCounter(sharedPrefs.getBoolean("split_counter", false));
@@ -40,8 +39,6 @@ public class SendUtil {
         sendSettings.setPreText(sharedPrefs.getBoolean("giffgaff_delivery", false) ? "*0#" : "");
         sendSettings.setSendLongAsMms(sharedPrefs.getBoolean("send_as_mms", false));
         sendSettings.setSendLongAsMmsAfter(sharedPrefs.getInt("mms_after", 4));
-        sendSettings.setAccount(sharedPrefs.getString("voice_account", null));
-        sendSettings.setRnrSe(sharedPrefs.getString("voice_rnrse", null));
 
         return sendSettings;
     }

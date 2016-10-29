@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lklinker.android.slideovermessaging"
-    android:versionCode="14"
-    android:versionName="1.27" >
+    package="com.lklinker.android.slideovermessaging" >
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -17,15 +15,13 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="18" />
-
-    <application
+    <application xmlns:tools="http://schemas.android.com/tools"
+        tools:replace="android:icon"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
+
         <activity
             android:name="com.lklinker.android.slideovermessaging.MainActivity"
             android:label="@string/app_name" >

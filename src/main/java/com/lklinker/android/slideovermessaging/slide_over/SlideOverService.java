@@ -31,6 +31,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.support.v7.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -240,21 +241,15 @@ public class SlideOverService extends Service {
         this.registerReceiver(unlock, filter);
 
         if (sharedPrefs.getBoolean("foreground_service", false)) {
-            Notification notification = new Notification(R.drawable.stat_notify_sms, "SlideOver Messaging",
-                    System.currentTimeMillis());
             Intent notificationIntent = new Intent(this, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-            notification.setLatestEventInfo(this, "SlideOver Messaging",
-                    "Click to open settings", pendingIntent);
-
-            // priority flag is only available on api level 16 and above
-            if(getResources().getBoolean(R.bool.priority)) {
-                try {
-                    notification.priority = Notification.PRIORITY_MIN;
-                } catch (NoSuchFieldError e) {
-                    // i don't understand why it is getting here... but it keeps throwing this error for some guy..
-                }
-            }
+            Notification notification = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.stat_notify_sms)
+                    .setContentTitle("SlideOver Messaging")
+                    .setContentText("Click to open settings")
+                    .setContentIntent(pendingIntent)
+                    .setPriority(Notification.PRIORITY_MIN)
+                    .build();
 
             startForeground(FOREGROUND_SERVICE_ID, notification);
         }

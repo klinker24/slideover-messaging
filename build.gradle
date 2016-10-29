@@ -1,20 +1,21 @@
 buildscript {
     repositories {
-        mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.10.+'
+        classpath 'com.android.tools.build:gradle:2.2.2'
     }
 }
 
 allprojects {
     repositories {
         mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        flatDir { dirs 'lib' }
     }
 }
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
     packagingOptions {
@@ -27,14 +28,14 @@ android {
         exclude 'META-INF/NOTICE'
 	exclude 'META-INF/DEPENDENCIES'
     }
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 25
+        versionCode 14
+        versionName "1.27"
     }
 
     lintOptions {
@@ -44,18 +45,9 @@ android {
 
 
 dependencies {
-    repositories {
-        mavenCentral()
-        maven {
-            url 'https://oss.sonatype.org/content/repositories/snapshots/'
-        }
-        flatDir {
-            dirs 'lib'
-        }
-    }
-
-    compile(name:'android-smsmms', ext:'aar')
-    compile(name:'ColorPickerPreference', ext:'aar')
+    compile 'com.klinkerapps:android-smsmms:3.4.1'
+    compile(name: 'ColorPickerPreference', ext:'aar')
+    compile "com.android.support:appcompat-v7:25.0.0"
 }
 
 apply plugin: 'idea'
